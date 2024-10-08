@@ -1,0 +1,108 @@
+<mat-toolbar class="bg-white shadow-md flex justify-between items-center">
+  <div class="flex space-x-4">
+    <a mat-button routerLink="/dashboard" routerLinkActive="active"
+      >Dashboard</a
+    >
+    <a mat-button routerLink="/feed" routerLinkActive="active">Feed</a>
+  </div>
+  <div class="flex items-center space-x-2">
+    <a
+      mat-button
+      routerLink="/profile"
+      routerLinkActive="active"
+      class="flex flex-row items-center justify-center"
+    >
+      <img
+        src="assets/images/Media.png"
+        class="w-12 h-12 rounded-full mr-2"
+      />
+    </a>
+  </div>
+</mat-toolbar>
+
+<div class="text-end mr-2">
+  <button (click)="openModal()" mat-flat-button class="border-2 border-solid border-black p-2 rounded mt-5" style="color:white;">Add
+      Post</button>
+</div>
+
+@if(modal){
+<form class="modal delay-500" (submit)="onSubmit($event)">
+<span class="cursor-pointer flex justify-end absolute right-1 top-1" (click)="closeModal()"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="close"></mat-icon></span>
+  <h2>Add New Post</h2>
+  <div class="flex justify-between my-2">
+      <label for="title">Title:</label>
+      <input class="border-2 border-solid border-black" type="text" id="title" name="title" required>
+  </div>
+  <div class="flex justify-between my-2">
+      <label for="description">Description:</label>
+      <input class="border-2 border-solid ml-2 border-black" type="text" id="description" name="description"
+          required>
+  </div>
+  <div class="flex justify-center mt-4">
+    <button type="submit" class="bg-cyan-500 p-2 rounded">Submit</button>
+  </div>
+ 
+</form>
+}
+
+<!-- @if(modal2){
+         
+  <form class="modal " (submit)="onUpdate($event, )">
+    <span class="cursor-pointer flex justify-end absolute right-1 top-1" (click)="closeModal2()"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="close"></mat-icon></span>
+
+      <h2>Update Post</h2>
+     
+      <div class="flex justify-between my-2">
+          <label for="title">Title:</label>
+          <input class="border-2 border-solid border-black rounded-md" type="text" id="title" name="title" required>
+      </div>
+      <div class="flex justify-between my-2">
+          <label for="description">Description:</label>
+          <input class="border-2 border-solid ml-2 border-black rounded-md" type="text" id="description" name="description"
+              required>
+      </div>
+      <div class="flex justify-center mt-4">
+        <button type="submit" class="bg-cyan-500 p-2 rounded">Submit</button>
+      </div>
+     
+  </form>
+} -->
+
+
+@for (post of posts; track $index) {
+
+<div class="post-container flex">
+  <mat-card class="post-card w-full">
+    <div class="flex justify-between items-center w-full p-4">
+      <mat-expansion-panel hideToggle class="w-full h-full pb-2">
+        <mat-expansion-panel-header>
+          <mat-card-header class="w-full">
+            <div class="flex justify-between items-center w-full">
+              <mat-card-title class="font-bold">{{
+                post.title
+              }}</mat-card-title>
+
+              <mat-card-subtitle class="text-gray-600">{{
+                post.createdDate | date : "longDate"
+              }}</mat-card-subtitle>
+            </div>
+          </mat-card-header>
+        </mat-expansion-panel-header>
+        <mat-card-content>
+          {{ post.postDescription }}
+        </mat-card-content>
+        <div class="flex justify-evenly mt-2">
+            <!-- <button mat-raised-button class="expand-button">Edit Post</button> -->
+            <button mat-raised-button color="warn" class="expand-button" (click)="onDeletePost(post.postId)">Delete Post</button>
+        </div>
+      </mat-expansion-panel>
+    </div>
+
+    <!-- Card Actions (optional for likes/comments etc.) -->
+    <!-- <mat-card-actions>
+            <button mat-button>Like</button>
+          </mat-card-actions> -->
+  </mat-card>
+  <!-- </a> -->
+</div>
+}

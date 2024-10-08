@@ -1,0 +1,27 @@
+<div class="seller-form">
+    <div class="sign-up">
+      <h1>Login In</h1>
+      <!-- (ngSubmit)="signUp(sellerSignUp)" -->
+      <form  class="common-form">
+        <input
+          class="form-input"
+          type="text"
+          placeholder="Enter Name"
+          name="UserName"
+          id="name"
+          [(ngModel)] = "loginObj.UserName"
+        />
+        <input
+          class="form-input"
+          type="password"
+          
+          id="password"
+          placeholder="Enter password"
+          name="UserPassword"
+          [(ngModel)] = "loginObj.UserPassword"
+        /> 
+        <button class="form-button" (click)="onLogin()">Login In</button>
+      </form>
+    </div>
+  </div>
+  

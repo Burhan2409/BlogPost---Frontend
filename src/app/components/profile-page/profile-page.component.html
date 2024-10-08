@@ -1,0 +1,37 @@
+<mat-toolbar class="bg-white shadow-md flex justify-between items-center">
+  <div class="flex space-x-4">
+    <a mat-button routerLink="/dashboard" routerLinkActive="active"
+      >Dashboard</a
+    >
+    <a mat-button routerLink="/feed" routerLinkActive="active">Feed</a>
+  </div>
+  <div class="flex items-center space-x-2">
+    <a
+      mat-button
+      routerLink="/profile"
+      class="flex flex-row items-center justify-center"
+    >
+      <img
+        src="assets/images/Media.png"
+        class="w-12 h-12 rounded-full mr-2"
+      />
+      <!-- <p class="mt-1">Profile</p> -->
+    </a>
+  </div>
+</mat-toolbar>
+
+<mat-card class="flex justify-center items-center mt-5">
+  <mat-card-content>
+    <img
+      src="assets/images/Media.png"
+      alt="Profile Image"
+      class="rounded-full w-52 h-52"
+    />
+  </mat-card-content>
+  <mat-card-content class="mt-4">
+    <p><span class="userText">User Name :</span> {{ dummyData }}</p>
+    <p><span class="userText">User Log Time :</span> {{ loginTime }}</p>
+    <p><span class="userText">User Log Date :</span> {{ loginDate }}</p>
+
+  </mat-card-content>
+</mat-card>

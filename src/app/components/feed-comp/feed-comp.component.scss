@@ -1,0 +1,38 @@
+.post-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .post-card {
+    width: 600px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+  }
+  
+  mat-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  mat-card-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .expand-button {
+    border: 1px black solid;
+  }
+
+  .modal{
+    z-index: 10;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    background-color: white;
+    padding: 3%;
+    text-align: start;
+    border: 1px solid black;
+    border-radius: 10px;
+}
